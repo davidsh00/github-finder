@@ -26,7 +26,7 @@ function SearchUser() {
     <div className="container p-4 flex sm:flex-col items-center gap-x-8 gap-y-4 sm:items-start">
       <form onSubmit={handleSubmit}>
         <div className="relative rounded overflow-hidden">
-          <input type="text" className="w-full py-2 px-2 border-0 pr-16 text-black" value={text} onChange={handleChange}/>
+          <input type="text" className="w-full py-2 px-2 border-0 pr-16 text-black" value={text} onChange={handleChange} placeholder="search"/>
           <button type="submit " className="absolute right-0 bg-gray-700 px-4 py-2">Go</button>
         </div>
       </form>
