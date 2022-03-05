@@ -3,13 +3,16 @@ import GithubContext from "../../context/github/GithubContext";
 import { Link, useParams } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import UserRepos from "./UserRepos";
+import {getUserAndRepos} from '../../context/github/GithubAction'
 
 function User() {
   const params = useParams();
-  const { user, getUser, loading, getRepos, repos } = useContext(GithubContext);
-  useEffect(() => {
-    getUser(params.login);
-    getRepos(params.login);
+  const {dispatch, user, loading, repos } = useContext(GithubContext);
+  useEffect(async() => {
+    dispatch({type:'SET_LOADING'})
+    const data=await getUserAndRepos(params.login)
+    dispatch({type:'GET_USER_AND_REPOS',payload:data})
+    console.log(data)
   }, []);
   const {
     avatar_url,

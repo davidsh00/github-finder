@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom'
-
 function UserRepos({repo}) {
     const{name,html_url}=repo
   return (
